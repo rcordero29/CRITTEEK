@@ -10,6 +10,16 @@ router.get('/user',usercontrollers.checkjwt , usercontrollers.getusers);
 //this gets all the business info, can input name for more specific search
 router.get('/businessName', usercontrollers.getbusinesses);
 
+// delete business
+router.delete('/removebusiness/:id',usercontrollers.deleteBusiness)
+
+// leave a thumbs up
+router.post('/thumbsup/:id',usercontrollers.checkjwt, usercontrollers.thumbsup)
+
+//leaves a thumbs down
+router.post('/thumbsdown/:id')
+
+
 // this will allow you to update a review left,
 router.put('/review');
 
@@ -17,7 +27,7 @@ router.put('/review');
 router.delete('/review/:remove');
 
 //allows user to enter new business into database
-router.post('/newbusiness');
+router.post('/newbusiness', usercontrollers.addbusiness);
 
 // this allows you a new user to create an account
 router.post('/newuser', usercontrollers.createuser);
